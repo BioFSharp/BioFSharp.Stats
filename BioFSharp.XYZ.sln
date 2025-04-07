@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7501C4DF-A844-40A0-8742-3343E48E55F1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFSharp.XYZ", "src\BioFSharp.XYZ\BioFSharp.XYZ.fsproj", "{BAC97B5C-B9A6-40D6-B533-0A07E12939ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D152DA0B-8F60-4611-B613-642379E2B17C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFSharp.XYZ.Tests", "tests\BioFSharp.XYZ.Tests\BioFSharp.XYZ.Tests.fsproj", "{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{77A50576-9359-44E5-B2F9-95318AB3DAEA}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{78399A41-F06A-4B35-AA24-E2E20209D8DE}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build.sh = build.sh
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "build", "build\build.fsproj", "{8DCCA688-871C-49DD-BC06-4877F714497C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{88932F99-4093-455A-901B-E0203694A436}"
+	ProjectSection(SolutionItems) = preProject
+		docs\index.fsx = docs\index.fsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ci", ".ci", "{812698C9-F1C7-4708-8B28-B22FAAC0ADA4}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAC97B5C-B9A6-40D6-B533-0A07E12939ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC97B5C-B9A6-40D6-B533-0A07E12939ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC97B5C-B9A6-40D6-B533-0A07E12939ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC97B5C-B9A6-40D6-B533-0A07E12939ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DCCA688-871C-49DD-BC06-4877F714497C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCCA688-871C-49DD-BC06-4877F714497C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCCA688-871C-49DD-BC06-4877F714497C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCCA688-871C-49DD-BC06-4877F714497C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BAC97B5C-B9A6-40D6-B533-0A07E12939ED} = {7501C4DF-A844-40A0-8742-3343E48E55F1}
+		{CB9E38BC-EE86-44EB-AFF5-91D1AF713ADC} = {D152DA0B-8F60-4611-B613-642379E2B17C}
+		{8DCCA688-871C-49DD-BC06-4877F714497C} = {78399A41-F06A-4B35-AA24-E2E20209D8DE}
+	EndGlobalSection
+EndGlobal
