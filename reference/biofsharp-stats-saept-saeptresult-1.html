@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://BioFSharp.github.io/BioFSharp.Stats/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, Kevin Schneider, F# open source contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="BioFSharp.Stats">
+    <meta property="og:title" content="SAEPTResult<'a> (BioFSharp.Stats)" />
+    <meta property="og:url" content="https://BioFSharp.github.io/BioFSharp.Stats/{{fsdocs-source-basename}}.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://BioFSharp.github.io/BioFSharp.Stats/">
+    <meta name="twitter:title" content="SAEPTResult<'a> (BioFSharp.Stats)">
+    
+    <title>SAEPTResult<'a> (BioFSharp.Stats) | BioFSharp.Stats</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="api-docs">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://BioFSharp.github.io/BioFSharp.Stats/">
+            <img alt="Header menu logo" src="https://BioFSharp.github.io/BioFSharp.Stats/img/logo.png">
+            <strong>BioFSharp.Stats</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/BioFSharp/BioFSharp.Stats/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <div>
+  <h2>
+    SAEPTResult<'a> Type
+  </h2>
+  <dl class="fsdocs-metadata">
+    <dt>
+      Namespace: 
+      <a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats.html">
+        BioFSharp.Stats
+      </a>
+    </dt>
+    <dt>
+      Assembly: BioFSharp.Stats.dll
+    </dt>
+    <dt>
+      Parent Module: 
+      <a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept.html">
+        SAEPT
+      </a>
+    </dt>
+    <dt>
+      Base Type: 
+      <code>obj</code>
+    </dt>
+    <dt>
+      All Interfaces: 
+      <code><span><a href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptresult-1.html">SAEPTResult</a>&lt;'a&gt;</span>&gt;</span></code>
+      , 
+      <code><a href="https://learn.microsoft.com/dotnet/api/system.collections.istructuralequatable">IStructuralEquatable</a></code>
+      , 
+      <code><span><a href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptresult-1.html">SAEPTResult</a>&lt;'a&gt;</span>&gt;</span></code>
+      , 
+      <code><a href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></code>
+      , 
+      <code><a href="https://learn.microsoft.com/dotnet/api/system.collections.istructuralcomparable">IStructuralComparable</a></code>
+    </dt>
+  </dl>
+  <div class="fsdocs-xmldoc">
+    <div>
+      <p class="fsdocs-summary">
+        
+      </p>
+    </div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <h3>
+      Record fields
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Record Field
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '44', 44)" onmouseover="showTip(event, '44', 44)">
+                <p>
+                  <a id="AbsoluteDescriptor">
+                    <a href="#AbsoluteDescriptor">
+                      <code>AbsoluteDescriptor</code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="44">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code>AbsoluteDescriptor</code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Field type: 
+                    <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Field type: 
+                </span>
+                <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '45', 45)" onmouseover="showTip(event, '45', 45)">
+                <p>
+                  <a id="BootstrapIterations">
+                    <a href="#BootstrapIterations">
+                      <code>BootstrapIterations</code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="45">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code>BootstrapIterations</code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Field type: 
+                    <code>int</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Field type: 
+                </span>
+                <code>int</code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '46', 46)" onmouseover="showTip(event, '46', 46)">
+                <p>
+                  <a id="NegativeDescriptor">
+                    <a href="#NegativeDescriptor">
+                      <code>NegativeDescriptor</code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="46">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code>NegativeDescriptor</code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Field type: 
+                    <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Field type: 
+                </span>
+                <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '47', 47)" onmouseover="showTip(event, '47', 47)">
+                <p>
+                  <a id="PositiveDescriptor">
+                    <a href="#PositiveDescriptor">
+                      <code>PositiveDescriptor</code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="47">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code>PositiveDescriptor</code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Field type: 
+                    <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Field type: 
+                </span>
+                <code><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-saept-saeptcharacterization.html">SAEPTCharacterization</a>&#32;list</span></code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '48', 48)" onmouseover="showTip(event, '48', 48)">
+                <p>
+                  <a id="RawData">
+                    <a href="#RawData">
+                      <code>RawData</code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="48">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code>RawData</code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Field type: 
+                    <code><span><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-ontologyenrichment-ontologyitem-1.html">OntologyItem</a>&lt;'a&gt;</span>&#32;array</span></code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Field type: 
+                </span>
+                <code><span><span><a href="https://BioFSharp.github.io/BioFSharp.Stats/reference/biofsharp-stats-ontologyenrichment-ontologyitem-1.html">OntologyItem</a>&lt;'a&gt;</span>&#32;array</span></code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-tips.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://BioFSharp.github.io/BioFSharp.Stats/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, Kevin Schneider, F# open source contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="BioFSharp.Stats">
+    <meta property="og:title" content="Gene set enrichment analysis (GSEA)
+" />
+    <meta property="og:url" content="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://BioFSharp.github.io/BioFSharp.Stats/">
+    <meta name="twitter:title" content="Gene set enrichment analysis (GSEA)
+">
+    
+    <title>Gene set enrichment analysis (GSEA)
+ | BioFSharp.Stats</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://BioFSharp.github.io/BioFSharp.Stats/">
+            <img alt="Header menu logo" src="https://BioFSharp.github.io/BioFSharp.Stats/img/logo.png">
+            <strong>BioFSharp.Stats</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/BioFSharp/BioFSharp.Stats/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <h1><a name="Gene-set-enrichment-analysis-GSEA" class="anchor" href="#Gene-set-enrichment-analysis-GSEA">Gene set enrichment analysis (GSEA)</a></h1>
+<p>When performing high-troughput experiments the question arises how to analyze the resulting huge data sets.
+Of course the analysis of each single item separately is possible but unefficient and cumberersome.
+If you want to compare the transcript/protein composition of a system before and after a treatment it is useful
+to make use of a gene set enrichment analysis (GSEA) to identify overrepresented transcript/protein groups.
+The grouping can be based on MapMan- or GO-annotations or other shared properties.
+For further information visit <a href="https://academic.oup.com/bioinformatics/article/23/4/401/181853">GSEA publication</a>.</p>
+<h2><a name="Method" class="anchor" href="#Method">Method</a></h2>
+<p>Imagine an experiment, in which 1000 proteins were measured. Within these 1000 proteins there are 25 proteins
+of a specific functional group (heat shock response).
+By treating the organism(s) 200 proteins are significantly altered. 10 of the 25 heat responsive proteins
+can be found within these 200.</p>
+<p>Null-Hypothesis: The number of identified altered items is due to chance.</p>
+<p>Question: What is the probability, that these 10 or more proteins occuring in the 200 altered proteins by chance?</p>
+<p>The hypergeomentric distribution can answer this question:</p>
+<ul>
+<li>N is the population size (1000 proteins)</li>
+<li>K is the number of success states in the population (25 heat responsive proteins)</li>
+<li>n is the number of draws (200 significantly altered proteins)</li>
+<li>k is the number of observed successes (10 or higher)</li>
+</ul>
+<p>Result: 0.0161 = 1.6%</p>
+<p>If the calculated probability is small, it is very unlikely, that the observed effect is due to chance.
+This implies, that under the given condition the heat response proteins are enriched.</p>
+<h3><a name="Split-p-value-threshold" class="anchor" href="#Split-p-value-threshold">Split p value threshold</a></h3>
+<p>The discrete nature of the hypergeometric distribution prevents the significance to reach 0.05 exactly. Especially in small bin sizes there always is a range of <span class="math">\(\alpha\)</span>-level space that must be sacrificed leading to a lower <span class="math">\(\alpha\)</span> than intended.
+To mitigate this loss of power you can use a mid p-value, that has the form of:</p>
+<ul>
+<li><span class="math">\(P(K&gt;k) + 0.5P(K=k)\)</span> or equivalently <span class="math">\(0.5(P(K&gt;k) + P(K\geq k))\)</span></li>
+</ul>
+<p>The resulting p-values are not conservative any more. The actual alpha level may be higher than intended!</p>
+<p><em>References</em></p>
+<ul>
+<li><p>Figure A1 in Schneider, Venn, and Mühlhaus; TMEA: A Thermodynamically Motivated Framework for Functional Characterization of Biological Responses to System Acclimation; Entropy 2020; <a href="https://doi.org/10.3390/e22091030">https://doi.org/10.3390/e22091030</a></p></li>
+<li>Rivals et al.; Enrichment or depletion of a GO category within a class of genes: which test?; Bioinformatics 2006; doi:10.1093/bioinformatics/btl633</li>
+<li>Rubin-Delanchy et al.; Meta-Analysis of Mid-p-Values: Some New Results based on the Convex Order.; Journal of the American Statistical Association 2018; doi:10.1080/01621459.2018.1469994</li>
+<li><p>Agresti and Min; On Small-Sample Confidence Intervals for Parameters in Discrete Distributions; Biometrics 2001;  <a href="https://doi.org/10.1111/j.0006-341X.2001.00963.x">https://doi.org/10.1111/j.0006-341X.2001.00963.x</a></p></li>
+</ul>
+<h2><a name="Usage" class="anchor" href="#Usage">Usage</a></h2>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Usage:</span>
+<span class="c">//At first all items are converted into an OntologyItem type:</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="id">BioFSharp</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 4)" onmouseover="showTip(event, 'fs1', 4)" class="id">BioFSharp</span><span class="pn">.</span><span class="id">Stats</span>
+
+<span class="c">//Example item</span>
+<span class="c">//Protein:                  HSP70</span>
+<span class="c">//MapManAnnotation:         GMM:29.6.2.3;GMM:20.2.1</span>
+<span class="c">//Significantly altered?:   true</span>
+
+<span class="c">//Creates an OntologyItem with an identifier, an Ontologyterm, a group index and an arbitrary and </span>
+<span class="c">//optional field. The groupIndex is based on prior analyis and defines if the items belongs to a </span>
+<span class="c">//specific group. If significantly altered proteins were identified, you can assign index &#39;1&#39; to </span>
+<span class="c">//all altered proteins and &#39;0&#39; to all other. The choice of the index is up to you, but you have </span>
+<span class="c">//to remind it for later steps.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">item</span> <span class="o">=</span> <span class="id">OntologyEnrichment</span><span class="pn">.</span><span class="id">createOntologyItem</span> <span class="s">&quot;Cre06.g250100&quot;</span> <span class="s">&quot;protein.folding.chaperones and co-chaperones.HSP70s;stress.abiotic.heat&quot;</span> <span class="n">1</span> <span class="s">&quot;HSP70&quot;</span>
+
+
+<span class="c">//If more than one ontology term is possible, you can use this function to split the item, so that</span>
+<span class="c">//every resulting item contains just one ontology term.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">splitItems</span> <span class="o">=</span> <span class="id">OntologyEnrichment</span><span class="pn">.</span><span class="id">splitMultipleAnnotationsBy</span> <span class="s">&#39;;&#39;</span> <span onmouseout="hideTip(event, 'fs3', 7)" onmouseover="showTip(event, 'fs3', 7)" class="id">item</span>
+
+<span class="c">//create a list of all items in your experiment</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="id">items</span> <span class="o">=</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="id">splitItems</span><span class="c">(*...*)</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 11)" onmouseover="showTip(event, 'fs7', 11)" class="id">concat</span>
+
+<span class="c">//When dealing with MapMan annotations all levels of the descriptions should be considered.</span>
+<span class="c">//&quot;stress.abiotic.heat&quot; -&gt; [&quot;stress.abiotic.heat&quot;; &quot;stress.abiotic&quot;; &quot;stress&quot;] </span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 12)" onmouseover="showTip(event, 'fs8', 12)" class="id">expandedItems</span> <span class="o">=</span> <span class="id">OntologyEnrichment</span><span class="pn">.</span><span class="id">expandOntologyTree</span> <span onmouseout="hideTip(event, 'fs5', 13)" onmouseover="showTip(event, 'fs5', 13)" class="id">items</span>
+
+
+<span class="c">//now the dataset is ready for performing the enrichment analysis</span>
+<span class="c">//deGroupIndex:         which index should be considered as success? (in this case &#39;1&#39;)</span>
+<span class="c">//splitPValueThreshold: if a bin size is below this threshold, the resulting pvalue </span>
+<span class="c">//                      is split up (-&gt; increased to lower the impact of small bins) (default 5).</span>
+<span class="c">//minNumberInTerm:      what is the minimal number of items that should be </span>
+<span class="c">//                      within a bin to consider the bin at all (default 2).</span>
+<span class="c">//data:                 sequence of expanded and split ontology items</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 14)" onmouseover="showTip(event, 'fs9', 14)" class="id">gseaResult</span> <span class="o">=</span> <span class="id">OntologyEnrichment</span><span class="pn">.</span><span class="id">CalcOverEnrichment</span> <span class="n">1</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs10', 15)" onmouseover="showTip(event, 'fs10', 15)" class="id">Some</span> <span class="n">5</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs10', 16)" onmouseover="showTip(event, 'fs10', 16)" class="id">Some</span> <span class="n">2</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs8', 17)" onmouseover="showTip(event, 'fs8', 17)" class="id">expandedItems</span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="id">filterAndSortEnrichedModules</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs9', 19)" onmouseover="showTip(event, 'fs9', 19)" class="id">gseaResult</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs6', 20)" onmouseover="showTip(event, 'fs6', 20)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 21)" onmouseover="showTip(event, 'fs12', 21)" class="id">filter</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs13', 22)" onmouseover="showTip(event, 'fs13', 22)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 23)" onmouseover="showTip(event, 'fs13', 23)" class="fn">x</span><span class="pn">.</span><span class="id">PValue</span> <span class="o">&lt;</span> <span class="n">0.05</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs6', 24)" onmouseover="showTip(event, 'fs6', 24)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 25)" onmouseover="showTip(event, 'fs14', 25)" class="id">sortByDescending</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 27)" onmouseover="showTip(event, 'fs13', 27)" class="fn">x</span><span class="pn">.</span><span class="id">NumberOfDEsInBin</span><span class="pn">)</span>
+
+<span class="c">//the result type contains the following fields:</span>
+<span class="c">//GseaResult:</span>
+<span class="c">//    OntologyTerm     : OntologyTerm(MapMan-Term/GO-Term/...)</span>
+<span class="c">//    ItemsInBin       : Sequence of single items belonging to the ontology term </span>
+<span class="c">//    NumberOfDEsInBin : Number of significantly altered items in &#39;OntologyTerm&#39; bin</span>
+<span class="c">//    NumberInBin      : Number of items in &#39;OntologyTerm&#39; bin</span>
+<span class="c">//    TotalNumberOfDE  : Number of significantly altered items</span>
+<span class="c">//    TotalUniverse    : Number of all items (expanded)</span>
+<span class="c">//    PValue           : p value</span>
+</code></pre>
+
+        <div class="fsdocs-tip" id="fs1">namespace BioFSharp</div>
+<div class="fsdocs-tip" id="fs2">namespace FSharpAux</div>
+<div class="fsdocs-tip" id="fs3">val item: obj</div>
+<div class="fsdocs-tip" id="fs4">val splitItems: obj seq</div>
+<div class="fsdocs-tip" id="fs5">val items: obj seq</div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br />module Seq
+
+from FSharpAux<br /><br />--------------------<br />module Seq
+
+from Microsoft.FSharp.Collections</div>
+<div class="fsdocs-tip" id="fs7">val concat: sources: #(&#39;T seq) seq -&gt; &#39;T seq</div>
+<div class="fsdocs-tip" id="fs8">val expandedItems: obj</div>
+<div class="fsdocs-tip" id="fs9">val gseaResult: obj seq</div>
+<div class="fsdocs-tip" id="fs10">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs11">val filterAndSortEnrichedModules: obj seq</div>
+<div class="fsdocs-tip" id="fs12">val filter: predicate: (&#39;T -&gt; bool) -&gt; source: &#39;T seq -&gt; &#39;T seq</div>
+<div class="fsdocs-tip" id="fs13">val x: obj</div>
+<div class="fsdocs-tip" id="fs14">val sortByDescending: projection: (&#39;T -&gt; &#39;Key) -&gt; source: &#39;T seq -&gt; &#39;T seq (requires comparison)</div>
+
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <ul>
+  <li class="level-1">
+    <a href="#Gene-set-enrichment-analysis-GSEA">
+      Gene set enrichment analysis (GSEA)
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Method">
+      Method
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#Split-p-value-threshold">
+      Split p value threshold
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Usage">
+      Usage
+    </a>
+  </li>
+</ul>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-tips.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-search.js"></script>
+
+</body>
+</html>

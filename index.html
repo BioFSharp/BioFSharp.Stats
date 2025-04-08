@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://BioFSharp.github.io/BioFSharp.Stats/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, Kevin Schneider, F# open source contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="BioFSharp.Stats">
+    <meta property="og:title" content="BioFSharp.Stats
+" />
+    <meta property="og:url" content="https://BioFSharp.github.io/BioFSharp.Stats/index.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://BioFSharp.github.io/BioFSharp.Stats/">
+    <meta name="twitter:title" content="BioFSharp.Stats
+">
+    
+    <title>BioFSharp.Stats
+ | BioFSharp.Stats</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://BioFSharp.github.io/BioFSharp.Stats/">
+            <img alt="Header menu logo" src="https://BioFSharp.github.io/BioFSharp.Stats/img/logo.png">
+            <strong>BioFSharp.Stats</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/BioFSharp/BioFSharp.Stats/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.Stats/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/GSEA.html">
+    Gene set enrichment analysis (GSEA)
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://BioFSharp.github.io/BioFSharp.Stats/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <h1><a name="BioFSharp-Stats" class="anchor" href="#BioFSharp-Stats">BioFSharp.Stats</a></h1>
+<p><img src="./docs/img/Logo_large.png" alt="Logo" /></p>
+<p><img src="https://img.shields.io/nuget/v/BioFSharp.Stats?label=nuget(stable)" alt="NuGet Version" />
+<img src="https://img.shields.io/nuget/vpre/BioFSharp.Stats?label=nuget(prerelease)" alt="NuGet Version" /></p>
+<p>BioFSharp.Stats contains statistical functions with a clear biological focus such as Gene Set Enrichment Analysis (GSEA).</p>
+<p>BioFSharp.Stats is part of the <a href="">BioFSharp</a> extension package ecosystem.</p>
+<table>
+<thead>
+<tr class="header">
+<th><p>Build status (ubuntu and windows)</p></th>
+<th><p>Test Coverage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><a href="https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml"><img src="https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml/badge.svg" alt="Build and test" /></a></p></td>
+<td><p><a href="https://codecov.io/gh/BioFSharp/BioFSharp.Stats"><img src="https://codecov.io/gh/BioFSharp/BioFSharp.Stats/branch/main/graph/badge.svg" alt="codecov" /></a></p></td>
+</tr>
+</tbody>
+</table>
+
+<p>From 2.0.0 onwards, this package will have a decoupled release schedule from the core <code>BioFSharp</code> package.
+This means that the versioning will be independent and may not follow the same versioning scheme as <code>BioFSharp</code>.</p>
+<p>The last coupled release was <code>2.0.0-preview.3</code>.</p>
+
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <ul>
+  <li class="level-1">
+    <a href="#BioFSharp-Stats">
+      BioFSharp.Stats
+    </a>
+  </li>
+</ul>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-tips.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-theme.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.Stats/content/fsdocs-search.js"></script>
+
+</body>
+</html>
