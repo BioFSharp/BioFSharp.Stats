@@ -1,4 +1,4 @@
-﻿namespace BioFSharp.XYZ
+﻿namespace BioFSharp.Stats
 
 open BioFSharp
 

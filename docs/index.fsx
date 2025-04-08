@@ -1,5 +1,5 @@
 (**
-# BioFSharp.XYZ
+# BioFSharp.Stats
 
 you can write markdown in these comment brackets `(** ... *)`
 *)
@@ -18,10 +18,10 @@ Include the compiled binaries of your project to use in the docs like this.
 Make sure to load any external references via nuget.
 *)
 #r "nuget: BioFSharp, 2.0.0-preview.3"
-#I @"..\src\BioFSharp.XYZ\bin\Release\net8.0"
-#r "BioFSharp.XYZ.dll"
+#I @"..\src\BioFSharp.Stats\bin\Release\net8.0"
+#r "BioFSharp.Stats.dll"
 
-open BioFSharp.XYZ
+open BioFSharp.Stats
 
 let o = BioTalk.helloBio "Kev"
 
