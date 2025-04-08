@@ -1,7 +1,7 @@
 (**
 # BioFSharp.Stats
 
-![Logo](docs/img/Logo_large.png)
+![Logo](./docs/img/Logo_large.png)
 
 ![NuGet Version](https://img.shields.io/nuget/v/BioFSharp.Stats?label=nuget(stable))
 ![NuGet Version](https://img.shields.io/nuget/vpre/BioFSharp.Stats?label=nuget(prerelease))
