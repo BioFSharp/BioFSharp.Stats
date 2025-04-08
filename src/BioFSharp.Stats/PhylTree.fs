@@ -2,6 +2,7 @@
 
 open BioFSharp
 open FSharp.Stats.ML.Unsupervised
+open Priority_Queue
 
 module PhylTree =
 
@@ -26,12 +27,19 @@ module PhylTree =
     /// <parameter name="distanceFunction">a function that determines the distance between two sequences e.g. evolutionary distance based on a substitution model</parameter>
     /// <parameter name="linker">the linker function to join clusters with</parameter>
     /// <parameter name="sequences">the input TaggedSequences</parameter>
-    let ofTaggedSequencesWithLinker (branchTag:'T) (distanceConverter: float -> 'Distance) (distanceFunction: seq<'S> -> seq<'S> -> float) linker (sequences: seq<TaggedSequence<'T,'S>>) =
-        sequences
-        |> HierarchicalClustering.generate
-            (fun a b  -> distanceFunction a.Sequence b.Sequence)
-            linker
-        |> ofHierarchicalCluster (TaggedSequence.create branchTag Seq.empty) distanceConverter
+    let ofTaggedSequencesWithLinker (branchTag:'T) (distanceConverter: float -> 'Distance) (distanceFunction: seq<'S> -> seq<'S> -> float) linker (sequences: TaggedSequence<'T,'S> array) =
+        let dist = (fun (a: TaggedSequence<'T,'S>) (b: TaggedSequence<'T,'S>)  -> distanceFunction a.Sequence b.Sequence)
+        let clustering = 
+            HierarchicalClustering.generate<TaggedSequence<'T,'S>>
+                dist
+                linker
+                sequences
+            |> Seq.item 0
+            |> (fun x -> x.Key)
+        clustering
+        |> ofHierarchicalCluster 
+            (TaggedSequence.create branchTag Seq.empty<'S>) 
+            distanceConverter
 
 
     /// <summary>
@@ -39,7 +47,7 @@ module PhylTree =
     /// </summary>
     /// <parameter name="distanceFunction">a function that determines the distance between two sequences e.g. evolutionary distance based on a substitution model</parameter>
     /// <parameter name="sequences">the input TaggedSequences</parameter>
-    let ofTaggedBioSequences (distanceFunction: seq<#IBioItem> -> seq<#IBioItem> -> float) (sequences: seq<TaggedSequence<string,#IBioItem>>) : PhylogeneticTree<TaggedSequence<string,#IBioItem>*float>=
+    let ofTaggedBioSequences (distanceFunction: seq<#IBioItem> -> seq<#IBioItem> -> float) (sequences: TaggedSequence<string,#IBioItem> array) : PhylogeneticTree<TaggedSequence<string,#IBioItem>*float> =
         sequences
         |> ofTaggedSequencesWithLinker
             "Ancestor"
