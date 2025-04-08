@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,8 +12,25 @@
     <Compile Include="OntologyEnrichment.fs" />
     <Compile Include="RNASeq.fs" />
     <Compile Include="SAEPT.fs" />
+    <None Include="..\..\docs\img\icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
-
+  
+  <PropertyGroup>
+    <Authors>Timo Mühlhaus, Kevin Schneider, F# open source contributors</Authors>
+    <Description>Statistical functions with a clear biological focus</Description>
+    <Summary>
+      BioFSharp.Stats contains statistical functions with a clear biological focus such as Gene Set Enrichment Analysis (GSEA).
+    </Summary>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://BioFSharp.github.io/BioFSharp.Stats/</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>bioinformatics F# fsharp statistic biostatistics datascience</PackageTags>
+    <RepositoryUrl>https://github.com/BioFSharp/BioFSharp.Stats</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <FsDocsLicenseLink>https://github.com/BioFSharp/BioFSharp.Stats/blob/main/LICENSE</FsDocsLicenseLink>
+    <FsDocsReleaseNotesLink>https://github.com/BioFSharp/BioFSharp.Stats/blob/main/RELEASE_NOTES.md</FsDocsReleaseNotesLink>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="BioFSharp" Version="2.0.0-preview.3" />
     <PackageReference Include="FSharp.Stats" Version="0.6.0" />

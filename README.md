@@ -1,45 +1,24 @@
-# PackageTemplate
+# BioFSharp.Stats
 
-A template repository for creating an extension package for BioFSharp.
+![Logo](docs/img/Logo_large.png)
 
-## Content
+![NuGet Version](https://img.shields.io/nuget/v/BioFSharp.Stats?label=nuget(stable))
+![NuGet Version](https://img.shields.io/nuget/vpre/BioFSharp.Stats?label=nuget(prerelease))
 
-- `src/BioFSharp.XYZ`: The main project folder. Contains a library with BioFSharp core dependency.
-- `tests/BioFSharp.XYZ.Tests`: The test project folder. Contains a XUnit test project
-- `build/build.fsproj`: A FAKE build project that handles building, testing, packaging, publishing, etc.
-- `docs`: the docs folder contains an example index.fsx file with simple documentation boilerplate.
+BioFSharp.Stats contains statistical functions with a clear biological focus such as Gene Set Enrichment Analysis (GSEA).
 
-## Setup
+BioFSharp.Stats is part of the [BioFSharp]() extension package ecosystem.
 
-Here is a list of things you should/might want to do after setting up a repo with this template:
 
-> [!IMPORTANT]  
-> Whenever you change a project file name or folder, make sure to fix the solution registration afterwards.
+| Build status (ubuntu and windows) | Test Coverage |
+|---|---|
+| ![](https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml/badge.svg) | [![codecov](https://codecov.io/gh/BioFSharp/BioFSharp.Stats/branch/main/graph/badge.svg)](https://codecov.io/gh/BioFSharp/BioFSharp.Stats) |
 
-- Rename some things: Replace `XYZ` with the name of your package
-  - `PackageTemplate.sln`
-  - `src/BioFSharp.XYZ`
-  - `src/BioFSharp.XYZ/BioFSharp.XYZ.fsproj`
-  - `tests/BioFSharp.XYZ`
-  - `tests/BioFSharp.XYZ.Tests/BioFSharp.XYZ.Tests.fsproj`
-    - Also make sure to fix the project reference to BioFSharp.XYZ when renamed
-  - in `build/ProjectInfo.fs`:
-    - Set project name: 
-      ```fsharp
-      let project = "BioFSharp.XYZ"` // replace with the name of your project
-      ```
-    - Set git owner:
-      ```fsharp
-      let gitOwner = "BioFSharp" // replace with github account name or organization where repo is hosted if necessary
-      ```
-    - fix test project path:
-      ```fsharp
-      let testProjects = 
-      [
-          "tests/BioFSharp.XYZ.Tests/BioFSharp.XYZ.Tests.fsproj" // replace with the name of your test project
-      ]
-      ```
-- If needed, change the target framework of the project. it currently targets `.net8.0`, might want to target a newer version if you need a specific API, or `netstandard2.0` for increased backwards compatibility.
+
+From 2.0.0 onwards, this package will have a decoupled release schedule from the core `BioFSharp` package.
+This means that the versioning will be independent and may not follow the same versioning scheme as `BioFSharp`.
+
+The last coupled release was `2.0.0-preview.3`.
 
 ## Build
 

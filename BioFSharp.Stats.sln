@@ -27,6 +27,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "build", "build\build.fsproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{88932F99-4093-455A-901B-E0203694A436}"
 	ProjectSection(SolutionItems) = preProject
+		docs\GSEA.fsx = docs\GSEA.fsx
 		docs\index.fsx = docs\index.fsx
 	EndProjectSection
 EndProject
@@ -38,6 +39,11 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFSharp.Stats", "src\BioFSharp.Stats\BioFSharp.Stats.fsproj", "{EFEC7FF4-B7CB-4C70-B396-73B971A4A21A}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFSharp.Stats.Tests", "tests\BioFSharp.Stats.Tests\BioFSharp.Stats.Tests.fsproj", "{17ECB3EC-8837-47F0-8F1A-3006A66126D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{E118E505-B0F4-4D3A-B440-1E00820AF971}"
+	ProjectSection(SolutionItems) = preProject
+		docs\img\Logo_large.png = docs\img\Logo_large.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,5 +71,6 @@ Global
 		{8DCCA688-871C-49DD-BC06-4877F714497C} = {78399A41-F06A-4B35-AA24-E2E20209D8DE}
 		{EFEC7FF4-B7CB-4C70-B396-73B971A4A21A} = {7501C4DF-A844-40A0-8742-3343E48E55F1}
 		{17ECB3EC-8837-47F0-8F1A-3006A66126D6} = {D152DA0B-8F60-4611-B613-642379E2B17C}
+		{E118E505-B0F4-4D3A-B440-1E00820AF971} = {88932F99-4093-455A-901B-E0203694A436}
 	EndGlobalSection
 EndGlobal
