@@ -6,11 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="PhylTree.fs" />
+    <Compile Include="OntologyEnrichment.fs" />
+    <Compile Include="RNASeq.fs" />
+    <Compile Include="SAEPT.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BioFSharp" Version="2.0.0-preview.3" />
+    <PackageReference Include="FSharp.Stats" Version="0.4.11" />
   </ItemGroup>
 
 </Project>
