@@ -23,6 +23,11 @@ jobs:
     - name: Build and test
       working-directory: ./
       run: ./build.sh runTests
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: BioFSharp/BioFSharp.Stats
 
   build-and-test-windows:
     
