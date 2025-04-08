@@ -12,7 +12,7 @@ BioFSharp.Stats is part of the [BioFSharp]() extension package ecosystem.
 
 | Build status (ubuntu and windows) | Test Coverage |
 |---|---|
-| ![](https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml/badge.svg) | [![codecov](https://codecov.io/gh/BioFSharp/BioFSharp.Stats/branch/main/graph/badge.svg)](https://codecov.io/gh/BioFSharp/BioFSharp.Stats) |
+| [![Build and test](https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/BioFSharp/BioFSharp.Stats/actions/workflows/build-and-test.yml) | [![codecov](https://codecov.io/gh/BioFSharp/BioFSharp.Stats/branch/main/graph/badge.svg)](https://codecov.io/gh/BioFSharp/BioFSharp.Stats) |
 
 
 From 2.0.0 onwards, this package will have a decoupled release schedule from the core `BioFSharp` package.

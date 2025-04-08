@@ -20,7 +20,7 @@ module PhylTree =
         loop 0. hCluster 
 
     /// <summary>
-    /// Performs hierarchical clustering of the input TaggedSequences using the provided distance function and linker. Returns the result as a Phylogenetic tree.</summary>
+    /// Performs hierarchical clustering of the input TaggedSequences using the provided distance function and linker. Returns the result as a Phylogenetic tree.
     /// </summary>
     /// <parameter name="branchTag">a tag to give the infered common ancestor branches (these are not tagged in contrast to the input sequence.)</parameter>
     /// <parameter name="distanceConverter">a converter function for the distance between nodes of the tree. Usually, a conversion to a string makes sense for downstream conversion to Newick format</parameter>
@@ -43,7 +43,7 @@ module PhylTree =
 
 
     /// <summary>
-    /// Performs hierarchical clustering of the input TaggedSequences using the provided distance function. Returns the result as a Phylogenetic tree.</summary>
+    /// Performs hierarchical clustering of the input TaggedSequences using the provided distance function. Returns the result as a Phylogenetic tree.
     /// </summary>
     /// <parameter name="distanceFunction">a function that determines the distance between two sequences e.g. evolutionary distance based on a substitution model</parameter>
     /// <parameter name="sequences">the input TaggedSequences</parameter>
